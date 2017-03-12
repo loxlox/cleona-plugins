@@ -38,7 +38,6 @@ class cleona_advertise extends WP_Widget {
 		/* Set up some default widget settings. */
 		$defaults = array( 
 			'title'		=> 'Advertisement',
-			'adcode'	=> '', 
 			'image'		=> '', 
 			'href'		=> '', 
 			'alt'		=> '' 
@@ -57,14 +56,6 @@ class cleona_advertise extends WP_Widget {
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'cleona-plugins' ); ?></label>
 			<input class="widefat" type="text" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" />
 		</p>
-
-		<!-- Widget Ad Code: Textarea -->
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'adcode' ) ); ?>"><?php esc_html_e( 'Ad Code:', 'cleona-plugins' ); ?></label>
-			<textarea class="widefat" name="<?php echo esc_attr( $this->get_field_name( 'adcode' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'adcode' ) ); ?>"<?php echo esc_attr( $read_only ); ?>><?php echo wp_kses_post( $instance['adcode'] ); ?></textarea>
-		</p>
-
-		<p><strong><?php esc_html_e( 'Or', 'cleona-plugins' ); ?></strong></p>
 
 		<!-- Widget Image: Text Input -->
 		<p>
@@ -97,7 +88,6 @@ class cleona_advertise extends WP_Widget {
 		$instance = $old_instance;
 		/* Strip tags for title and name to remove HTML (important for text inputs). */
 		$instance['title']	= wp_kses( $new_instance['title'], array( 'strong' => array() ) );
-		$instance['adcode']	= wp_kses_post( $new_instance['adcode'] );
 		$instance['image']	= esc_url( $new_instance['image'] );
 		$instance['href']	= esc_url( $new_instance['href'] );
 		$instance['alt']	= esc_attr( $new_instance['alt'] );
@@ -116,7 +106,6 @@ class cleona_advertise extends WP_Widget {
 
 		/* Our variables from the widget settings. */
 		$title		= isset( $instance['title'] ) ? wp_kses( $instance['title'], array( 'strong' => array() ) ) : '';
-		$adcode		= isset( $instance['adcode'] ) ? $instance['adcode'] : '';
 		$image		= isset( $instance['image'] ) ? esc_url( $instance['image'] ) : '';
 		$href		= isset( $instance['href'] ) ? esc_url( $instance['href'] ) : '';
 		$alt		= isset( $instance['alt'] ) ? esc_attr( $instance['alt'] ) : '';
@@ -128,21 +117,17 @@ class cleona_advertise extends WP_Widget {
 		if ( $title )
 			print( $before_title . $title . $after_title );
 
-		if ( $adcode != '' ) : 
-			echo wp_kses_post( $adcode );
-		else :
-			if ( $href != '' ) : ?>
-				<a href="<?php echo esc_url( $href ); ?>">
-					<?php if ( $image != '' ) : ?>
-						<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo !empty( $alt ) ? esc_attr( $alt ) : ''; ?>" />
-					<?php else :
-						if ( $alt != '' ) {
-							echo esc_html( $alt );
-						}
-					endif; ?>
-				</a>
-			<?php endif;
-		endif;
+		if ( $href != '' ) : ?>
+			<a href="<?php echo esc_url( $href ); ?>">
+				<?php if ( $image != '' ) : ?>
+					<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo !empty( $alt ) ? esc_attr( $alt ) : ''; ?>" />
+				<?php else :
+					if ( $alt != '' ) {
+						echo esc_html( $alt );
+					}
+				endif; ?>
+			</a>
+		<?php endif;
 
 		/* After widget (defined by themes). */
 		print( $after_widget );
