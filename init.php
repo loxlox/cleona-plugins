@@ -33,6 +33,11 @@ require_once plugin_dir_path( __FILE__ ) . '/widgets/banner.php';
 require_once plugin_dir_path( __FILE__ ) . '/widgets/testimonial.php';
 
 /**
+ * Call customize files.
+ */
+require_once plugin_dir_path( __FILE__ ) . '/customize/customize.php';
+
+/**
  * Enqueue plugin script file.
  * 
  * @package cleona
