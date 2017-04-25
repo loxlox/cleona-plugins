@@ -54,10 +54,10 @@
 /**
  * 2. Testimonial
  */
-.page-template-testimonial .cleona-message {
-	padding: 20px;
-	margin-bottom: 30px;
+.page-template-testimonial .cleona-message-wrapper {
+	padding: 20px 15px;
 	background-color: #637382;
+	margin-bottom: 30px;
 	color: #FFFFFF;
 	font-weight: 600;
 	text-align: center;
@@ -106,6 +106,12 @@
 }
 .cleona_testimonial .br-theme-fontawesome-stars .br-widget a {
 	font-size: 1.2em;
+}
+.page-template-testimonial .type-page {
+	border-bottom: 0;
+}
+.page-template-testimonial .entry-media {
+	margin-bottom: 30px;
 }
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:	Cleona Extentions
  * Description:	Package core for cleona theme template.
- * Version:		1.0.0
+ * Version:		1.0.1
  * Author:		ARThemewipes
  * Author URI:	http://themeforest.net/user/arthemewipes
  * Copyright: 	(c) 2017 ARTheme.
