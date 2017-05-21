@@ -6,6 +6,7 @@
  *	2. Testimonial
  *	3. About Me
  *	4. Custom Post
+ *	5. Custom Product
  */
 
 /**
@@ -170,4 +171,69 @@
 }
 .cleona_custom_post .entry-summary > a:hover {
 	color: #e74563;
+}
+
+/**
+ * 5. Custom Product
+ */
+.cleona-widget-post.woocommerce .type-product .inner-wrapper {
+	box-shadow: 0 0 0 1px rgba( 0, 0, 0, .5 );
+}
+.cleona-widget-post.woocommerce .type-product .entry-content {
+	padding: 20px;
+	background: #FFFFFF;
+}
+.cleona-widget-post.woocommerce .type-product h3 {
+	font-weight: 500;
+	letter-spacing: -1px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 0 20px;
+}
+.coloumn-6,
+.coloumn-5,
+.coloumn-4,
+.coloumn-3,
+.coloumn-2,
+.coloumn-1 {
+	width: 100%;
+	float: left;
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+@media only screen and ( min-width: 768px ) {
+	.coloumn-6,
+	.coloumn-5,
+	.coloumn-4 {
+		width: 33.3333%;
+	}
+	.coloumn-3,
+	.coloumn-2 {
+		width: 50%;
+	}
+	.coloumn-1 {
+		width: 100%;
+	}
+}
+@media only screen and ( min-width: 992px ) {
+	.coloumn-6 {
+		width: 16.6667%;
+	}
+	.coloumn-5 {
+		width: 20%;
+	}
+	.coloumn-4 {
+		width: 25%;
+	}
+	.coloumn-3 {
+		width: 33.3333%;
+	}
+	.coloumn-2 {
+		width: 50%;
+	}
+	.coloumn-1 {
+		width: 100%;
+	}
 }

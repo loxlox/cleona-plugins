@@ -31,6 +31,7 @@ require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-post.php';
 require_once plugin_dir_path( __FILE__ ) . '/widgets/ads.php';
 require_once plugin_dir_path( __FILE__ ) . '/widgets/banner.php';
 require_once plugin_dir_path( __FILE__ ) . '/widgets/testimonial.php';
+require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-product.php';
 
 /**
  * Call customize files.
