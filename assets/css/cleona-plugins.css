@@ -176,8 +176,18 @@
 /**
  * 5. Custom Product
  */
+.cleona-widget-post.woocommerce .type-product {
+	margin-bottom: 30px;
+}
+.cleona-widget-post.woocommerce .type-product:last-child {
+	margin-bottom: 0;
+}
 .cleona-widget-post.woocommerce .type-product .inner-wrapper {
-	box-shadow: 0 0 0 1px rgba( 0, 0, 0, .5 );
+	position: relative;
+	overflow: hidden;
+	-webkit-box-shadow: 0 0 5px -1px rgba( 0, 0, 0, .2 );
+	-moz-box-shadow: 0 0 5px -1px rgba( 0, 0, 0, .2 );
+	box-shadow: 0 0 5px -1px rgba( 0, 0, 0, .2 );
 }
 .cleona-widget-post.woocommerce .type-product .entry-content {
 	padding: 20px;
@@ -185,10 +195,67 @@
 }
 .cleona-widget-post.woocommerce .type-product h3 {
 	font-weight: 500;
-	letter-spacing: -1px;
 	text-align: center;
 	text-transform: uppercase;
+	color: #212121;
 	margin: 0 0 20px;
+}
+.cleona-widget-post.woocommerce .star-rating {
+	float: right;
+	line-height: 21px;
+	height: 21px;
+}
+.cleona-widget-post.woocommerce .cleona-product-price {
+	float: left;
+	text-align: center;
+	color: #E74563;
+	font-size: 1.5em;
+	font-weight: 600;
+	line-height: 1;
+}
+.cleona-widget-post.woocommerce .cleona-product-price ins {
+	text-decoration: none;
+}
+.cleona-widget-post.woocommerce .cleona-product-price del {
+	font-size: .7em;
+	font-weight: 400;
+	opacity: .5;
+	margin-bottom: 5px;
+}
+.cleona-widget-post.woocommerce .cleona-product-price span {
+	color: #E74563;
+}
+.cleona-widget-post.woocommerce .star-rating span {
+	color: #FFDA4D;
+}
+.cleona-widget-post.woocommerce .entry-image img {
+	-webkit-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+.cleona-widget-post.woocommerce .entry-image .hover-image {
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+.cleona-widget-post.woocommerce .type-product:hover .hover-image {
+	z-index: 2;
+	opacity: 1;
+	visibility: visible;
+}
+.woocommerce span.onsale {
+	left: -20px;
+	top: 15px;
+	border-radius: 0;
+	padding: 5px 30px;
+	-webkit-transform: rotate( -45deg );
+	-moz-transform: rotate( -45deg );
+	transform: rotate( -45deg );
 }
 .coloumn-6,
 .coloumn-5,
@@ -196,44 +263,51 @@
 .coloumn-3,
 .coloumn-2,
 .coloumn-1 {
-	width: 100%;
 	float: left;
 	position: relative;
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
 }
+.cleona-content .coloumn-6,
+.cleona-content .coloumn-5,
+.cleona-content .coloumn-4,
+.cleona-content .coloumn-3,
+.cleona-content .coloumn-2,
+.cleona-content .coloumn-1 {
+	width: 100%;
+}
 @media only screen and ( min-width: 768px ) {
-	.coloumn-6,
-	.coloumn-5,
-	.coloumn-4 {
+	.cleona-content .coloumn-6,
+	.cleona-content .coloumn-5,
+	.cleona-content .coloumn-4 {
 		width: 33.3333%;
 	}
-	.coloumn-3,
-	.coloumn-2 {
+	.cleona-content .coloumn-3,
+	.cleona-content .coloumn-2 {
 		width: 50%;
 	}
-	.coloumn-1 {
+	.cleona-content .coloumn-1 {
 		width: 100%;
 	}
 }
 @media only screen and ( min-width: 992px ) {
-	.coloumn-6 {
+	.cleona-content .coloumn-6 {
 		width: 16.6667%;
 	}
-	.coloumn-5 {
+	.cleona-content .coloumn-5 {
 		width: 20%;
 	}
-	.coloumn-4 {
+	.cleona-content .coloumn-4 {
 		width: 25%;
 	}
-	.coloumn-3 {
+	.cleona-content .coloumn-3 {
 		width: 33.3333%;
 	}
-	.coloumn-2 {
+	.cleona-content .coloumn-2 {
 		width: 50%;
 	}
-	.coloumn-1 {
+	.cleona-content .coloumn-1 {
 		width: 100%;
 	}
 }

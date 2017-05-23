@@ -260,20 +260,34 @@ class cleona_custom_product extends WP_Widget {
 			<div class="cleona-widget-post woocommerce">
 				<div class="row">
 					<?php while ( $products->have_posts() ) : $products->the_post();
-						global $product; ?>
+						global $product, $post;
+						$attachment_ids = $product->get_gallery_image_ids();
+						$product_price	= $product->get_price_html();
+						?>
 						<div id="product-<?php the_id(); ?>" <?php post_class( $coloumn_class ); ?>>
 							<div class="inner-wrapper">
+								<?php if ( $product->is_on_sale() ) : ?>
+									<?php echo apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product ); ?>
+								<?php endif; ?>
 								<?php if ( has_post_thumbnail() ) : ?>
 									<div class="entry-image">
 										<a href="<?php echo esc_url( get_the_permalink() ); ?>">
-											<?php the_post_thumbnail( 'shop_catalog' ); ?>
+											<?php
+											the_post_thumbnail( 'shop_catalog' );
+											if ( $attachment_ids ) {
+												echo wp_get_attachment_image( $attachment_ids[0], 'shop_catalog', false, array( 'class' => 'hover-image' ) );
+											}
+											?>
 										</a>
 									</div>
 								<?php endif; ?>
 								<div class="entry-content">
 									<?php the_title( '<h3 class="entry-title"><a href="' . esc_url( get_the_permalink() ) . '">', '</a></h3>' ); ?>
+									<div class="cleona-product-price">
+										<?php echo $product_price; ?>
+									</div>
 									<?php echo wc_get_rating_html( $product->get_average_rating() ); ?>
-									<?php echo $product->get_price_html(); ?>
+									<div class="clear"></div>
 								</div>
 							</div>
 						</div>
