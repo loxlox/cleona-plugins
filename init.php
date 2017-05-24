@@ -39,8 +39,14 @@ require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-product.php';
 require_once plugin_dir_path( __FILE__ ) . '/customize/customize.php';
 
 /**
+ * Call shortcode files.
+ */
+require_once plugin_dir_path( __FILE__ ) . '/shortcode/init.php';
+require_once plugin_dir_path( __FILE__ ) . '/shortcode/cleona-widget-about-me.php';
+
+/**
  * Enqueue plugin script file.
- * 
+ *
  * @package cleona
  */
 if ( !function_exists( 'cleona_plugins_enqueue_script' ) ) {
@@ -57,7 +63,7 @@ if ( !function_exists( 'cleona_plugins_enqueue_script' ) ) {
 
 /**
  * Enqueue plugin script file in admin area.
- * 
+ *
  * @package cleona
  */
 if ( !function_exists( 'cleona_plugins_admin_area_script' ) ) {
@@ -102,7 +108,7 @@ function cleona_remove_esc_attr_and_count( $safe_text = '', $text = '' ) {
 		if ( $count > 0 ) {
 			$text = esc_attr( $text ) . ' <span class="awaiting-mod count-' . $count . '"><span class="pending-count">' . $count . '</span></span>';
 			return $text;
-		} 
+		}
 	}
 	return $safe_text;
 }
