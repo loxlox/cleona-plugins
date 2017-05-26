@@ -1,21 +1,22 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) die( '-1' );
 
-function cleona_widget_about_me( $atts, $content = null ) {
-	$title = $image = $description = $read_more = $output = '';
+function cleona_widget_ads( $atts, $content = null ) {
+	$title = $image = $href = $alt = $output = '';
 	extract( shortcode_atts(
 		array(
-			'title'			=> '',
-			'image'			=> '',
-			'description'	=> '',
-			'read_more'		=> '',
-			'el_class'		=> '',
-			'el_id'			=> ''
+			'title'		=> '',
+			'image'		=> '',
+			'href'		=> '',
+			'alt'		=> '',
+			'el_class'	=> '',
+			'el_id'		=> ''
 		),
 		$atts
 	) );
+
 	$args			= array();
-	$type			= 'cleona_about_me';
+	$type			= 'cleona_advertise';
 	$image_url		= wp_get_attachment_image_src( $atts['image'], 'full' );
 	$atts['image']	= $image_url[0];
 
@@ -23,7 +24,7 @@ function cleona_widget_about_me( $atts, $content = null ) {
 	if ( ! empty( $el_id ) ) {
 		$wrapper_attributes[] = 'id="' . esc_attr( $el_id ) . '"';
 	}
-	$output = '<div ' . implode( ' ', $wrapper_attributes ) . ' class="vc_cleona_about_me wpb_content_element ' . esc_attr( $el_class ) . '">';
+	$output = '<div ' . implode( ' ', $wrapper_attributes ) . ' class="vc_cleona_ads wpb_content_element ' . esc_attr( $el_class ) . '">';
 
 	global $wp_widget_factory;
 	// to avoid unwanted warnings let's check before using widget
@@ -37,4 +38,4 @@ function cleona_widget_about_me( $atts, $content = null ) {
 		return $output;
 	}
 }
-add_shortcode( 'cleona_sc_about_me', 'cleona_widget_about_me' );
+add_shortcode( 'cleona_sc_ads', 'cleona_widget_ads' );
