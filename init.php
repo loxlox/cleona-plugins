@@ -58,14 +58,14 @@ if ( !class_exists( 'Cleona_Plugins' ) ) {
 		 */
 		function cleona_plugins_enqueue_script_front() {
 			/* Stylesheet */
-			wp_enqueue_style( 'cleona-plugins', plugin_dir_url( __FILE__ ) . 'assets/css/cleona-plugins.min.css', NULL, '1.0.0', 'all' );
+			wp_enqueue_style( 'cleona-plugins', plugin_dir_url( __FILE__ ) . 'assets/css/cleona-plugins.min.css', NULL, '1.0.2', 'all' );
 			if ( class_exists( 'VC_Manager' ) ) {
 				wp_enqueue_style( 'cleona-custom-vc', plugin_dir_url( __FILE__ ) . 'assets/css/cleona-custom-vc.min.css', NULL, '1.0.0', 'all' );
 			}
 
 			/* Javascript */
-			wp_enqueue_script( 'cleona-libraries-plugins', plugin_dir_url( __FILE__ ) . 'assets/js/libraries.js', array( 'jquery' ), '1.0.0', true );
-			wp_enqueue_script( 'cleona-custom-plugins', plugin_dir_url( __FILE__ ) . 'assets/js/plugins.min.js', array( 'jquery' ), '1.0.0', true );
+			wp_enqueue_script( 'cleona-libraries-plugins', plugin_dir_url( __FILE__ ) . 'assets/js/libraries.js', array( 'jquery' ), '1.0.2', true );
+			wp_enqueue_script( 'cleona-custom-plugins', plugin_dir_url( __FILE__ ) . 'assets/js/plugins.min.js', array( 'jquery' ), '1.0.2', true );
 		}
 
 		/**
