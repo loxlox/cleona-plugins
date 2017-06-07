@@ -180,6 +180,10 @@
 /**
  * 5. Custom Product
  */
+.widget-area .cleona-widget-post.woocommerce .type-product {
+	margin-left: 0;
+	margin-right: 0;
+}
 .cleona-widget-post.woocommerce .type-product {
 	margin-bottom: 30px;
 }

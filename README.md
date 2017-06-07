@@ -1,3 +1,6 @@
+============ Version 1.0.3 ============
+* Fixing product widget style
+
 ============ Version 1.0.2 ============
 + Custom Product Widget With Image
 + Add integration with visual composer

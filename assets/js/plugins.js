@@ -56,7 +56,7 @@ jQuery( document ).ready( function( $ ) {
 				$el,
 				topPosition		= 0;
 
-			$( '.cleona-content .cleona-widget-post .type-post, .cleona-content .cleona-widget-post .type-product' ).each( function() {
+			$( '.cleona-area .cleona-widget-post .type-post, .cleona-area .cleona-widget-post .type-product' ).each( function() {
 				$el			= $( this );
 				topPosition = $el.position().top;
 				if ( currentRowStart != topPosition ) {
