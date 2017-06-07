@@ -1,0 +1,22 @@
+@charset "UTF-8";
+/**
+ *	Table Of Content
+ *
+ *	1. VC Tabs
+ */
+
+
+/**
+ * 1. VC Tabs
+ */
+.wpb-js-composer .wpb_wrapper .vc_tta.vc_general .vc_tta-tab > a {
+	padding: 10px 15px;
+	border-radius: 0;
+}
+.wpb-js-composer .wpb_wrapper .vc_tta.vc_general .vc_tta-title-text:not( :empty ):not( :first-child ),
+.wpb-js-composer .wpb_wrapper .vc_tta.vc_general .vc_tta-title-text:not( :empty ) ~ * {
+	margin-left: 10px;
+}
+.wpb-js-composer .wpb_wrapper .vc_tta.vc_general .vc_tta-panel-body {
+
+}

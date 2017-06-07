@@ -10,6 +10,7 @@ function cleona_widget_post( $atts, $content = null ) {
 			'shown'		=> '3',
 			'orderby'	=> '',
 			'sortby'	=> '',
+			'big_size'	=> '',
 			'el_class'	=> '',
 			'el_id'		=> ''
 		),

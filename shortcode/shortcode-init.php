@@ -266,6 +266,15 @@ if ( class_exists( 'Vc_Manager' ) ) {
 				'param_name'	=> 'sortby'
 			),
 			array(
+				'type'			=> 'checkbox',
+				'heading'		=> esc_html__( 'Show as big post', 'cleona-plugins' ),
+				'admin_label'	=> true,
+				'value'			=> array(
+					esc_html__( 'Yes', 'cleona-plugins' ) => TRUE
+				),
+				'param_name'	=> 'big_size'
+			),
+			array(
 				'type'			=> 'textfield',
 				'heading'		=> esc_html__( 'Element ID', 'cleona-plugins' ),
 				'param_name'	=> 'el_id',

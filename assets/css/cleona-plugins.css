@@ -201,15 +201,14 @@
 	font-weight: 500;
 	text-transform: uppercase;
 	color: #212121;
-	margin: 0 0 20px;
+	margin: 0 0 10px;
 }
 .cleona-widget-post.woocommerce .star-rating {
-	float: right;
 	line-height: 21px;
 	height: 21px;
+	margin: 10px auto 0;
 }
 .cleona-widget-post.woocommerce .cleona-product-price {
-	float: left;
 	text-align: center;
 	color: #E74563;
 	font-size: 1.5em;

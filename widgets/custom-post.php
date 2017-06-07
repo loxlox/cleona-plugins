@@ -38,6 +38,7 @@ class cleona_custom_post extends WP_Widget {
 		$defaults	= array( 
 			'title'		=> 'Custom Post',
 			'type'		=> '',
+			'big_size'	=> false,
 			'shown'		=> 4,
 			'orderby'	=> 'comment',
 			'sortby'	=> 'desc'
@@ -92,6 +93,11 @@ class cleona_custom_post extends WP_Widget {
 				<?php endforeach; ?>
 			</select>
 		</p>
+		<!-- Display as big size post -->
+		<p>
+			<input class="checkbox" type="checkbox" <?php checked( (bool)$instance['big_size'] ); ?> id="<?php echo esc_attr( $this->get_field_id( 'big_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'big_size' ) ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'big_size' ) ); ?>"><?php esc_html_e( 'Show as big size post', 'cleona-plugins' ); ?></label><br />
+		</p>
 
 	<?php }
 
@@ -106,6 +112,7 @@ class cleona_custom_post extends WP_Widget {
 		$instance['shown']		= esc_attr( $new_instance['shown'] );
 		$instance['orderby']	= esc_attr( $new_instance['orderby'] );
 		$instance['sortby']		= esc_attr( $new_instance['sortby'] );
+		$instance['big_size']	= esc_attr( $new_instance['big_size'] );
 		return $instance;
 	}
 
@@ -119,6 +126,7 @@ class cleona_custom_post extends WP_Widget {
 		$shown		= isset( $instance['shown'] ) ? esc_attr( $instance['shown'] ) : '';
 		$orderby	= isset( $instance['orderby'] ) ? esc_attr( $instance['orderby'] ) : '';
 		$sortby		= isset( $instance['sortby'] ) ? esc_attr( $instance['sortby'] ) : '';
+		$big_size	= isset( $instance['big_size'] ) ? esc_attr( $instance['big_size'] ) : '';
 
 		print( $before_widget );
 
@@ -144,7 +152,7 @@ class cleona_custom_post extends WP_Widget {
 
 			if ( $post_loop->have_posts() ) : ?>
 				<div class="cleona-widget-post">
-					<?php if ( is_page_template( 'page-templates/homepage.php' ) && ( is_active_sidebar( 'cleona-home-widget-1' ) || is_active_sidebar( 'cleona-home-widget-2' ) || is_active_sidebar( 'cleona-home-widget-3' ) || is_active_sidebar( 'cleona-home-widget-4' ) ) ) : ?>
+					<?php if ( $big_size === '1' || $big_size === 'on' ) : ?>
 						<div class="row">
 							<?php while( $post_loop->have_posts() ) : $post_loop->the_post(); ?>
 								<div <?php post_class( 'col-md-4 col-sm-6' ); ?>>

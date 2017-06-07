@@ -18,6 +18,32 @@ if ( !class_exists( 'Cleona_Plugins' ) ) {
 		 * Cleona Plugins Construct.
 		 */
 		function Cleona_Plugins()  {
+			/**
+			 * Call template files.
+			 */
+			require_once plugin_dir_path( __FILE__ ) . '/templates/templates.php';
+
+			/**
+			 * Call custom post type Files.
+			 */
+			require_once plugin_dir_path( __FILE__ ) . '/post-types/banner.php';
+			require_once plugin_dir_path( __FILE__ ) . '/post-types/testimonial.php';
+
+			/**
+			 * Call customize files.
+			 */
+			require_once plugin_dir_path( __FILE__ ) . '/customize/customize.php';
+
+			/**
+			 * Call widget files.
+			 */
+			require_once plugin_dir_path( __FILE__ ) . '/widgets/about-me.php';
+			require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-post.php';
+			require_once plugin_dir_path( __FILE__ ) . '/widgets/ads.php';
+			require_once plugin_dir_path( __FILE__ ) . '/widgets/banner.php';
+			require_once plugin_dir_path( __FILE__ ) . '/widgets/testimonial.php';
+			require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-product.php';
+
 			add_action( 'wp_enqueue_scripts', array( &$this, 'cleona_plugins_enqueue_script_front' ), 1000 );
 			add_action( 'admin_enqueue_scripts', array( &$this, 'cleona_plugins_enqueue_script_admin' ) );
 			add_action( 'auth_redirect', array( &$this, 'cleona_add_pending_count_filter' ) );
@@ -33,6 +59,9 @@ if ( !class_exists( 'Cleona_Plugins' ) ) {
 		function cleona_plugins_enqueue_script_front() {
 			/* Stylesheet */
 			wp_enqueue_style( 'cleona-plugins', plugin_dir_url( __FILE__ ) . 'assets/css/cleona-plugins.min.css', NULL, '1.0.0', 'all' );
+			if ( class_exists( 'VC_Manager' ) ) {
+				wp_enqueue_style( 'cleona-custom-vc', plugin_dir_url( __FILE__ ) . 'assets/css/cleona-custom-vc.min.css', NULL, '1.0.0', 'all' );
+			}
 
 			/* Javascript */
 			wp_enqueue_script( 'cleona-libraries-plugins', plugin_dir_url( __FILE__ ) . 'assets/js/libraries.js', array( 'jquery' ), '1.0.0', true );
@@ -106,29 +135,3 @@ if ( !class_exists( 'Cleona_Plugins' ) ) {
 	}
 }
 $Cleona_Plugins = new Cleona_Plugins();
-
-/**
- * Call template files.
- */
-require_once plugin_dir_path( __FILE__ ) . '/templates/templates.php';
-
-/**
- * Call custom post type Files.
- */
-require_once plugin_dir_path( __FILE__ ) . '/post-types/banner.php';
-require_once plugin_dir_path( __FILE__ ) . '/post-types/testimonial.php';
-
-/**
- * Call customize files.
- */
-require_once plugin_dir_path( __FILE__ ) . '/customize/customize.php';
-
-/**
- * Call widget files.
- */
-require_once plugin_dir_path( __FILE__ ) . '/widgets/about-me.php';
-require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-post.php';
-require_once plugin_dir_path( __FILE__ ) . '/widgets/ads.php';
-require_once plugin_dir_path( __FILE__ ) . '/widgets/banner.php';
-require_once plugin_dir_path( __FILE__ ) . '/widgets/testimonial.php';
-require_once plugin_dir_path( __FILE__ ) . '/widgets/custom-product.php';
